@@ -3,7 +3,7 @@ config.txt
 *.tfstate
 *.backup
 .terraform/
-terraform.tfvars
+myterraform.tfvars
 *.log
 tmp
 local.settings.json
