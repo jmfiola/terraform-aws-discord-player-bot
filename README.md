@@ -1,6 +1,6 @@
 # Terraform AWS JMusicBot
 
-This project sets up a JMusicBot on an AWS EC2 instance using Terraform.
+This project sets up a JMusicBot on an AWS EC2 Ubuntu instance using Terraform.
 
 ## Prerequisites
 
