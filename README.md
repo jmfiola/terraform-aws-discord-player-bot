@@ -30,4 +30,4 @@ This project sets up a JMusicBot on an AWS EC2 instance using Terraform.
    ssh -i <path-to-ssh-key> ubuntu@<public-ip>
    ```
    NOTE: it may take a few minutes for java to install and the bot to start up after the instance is created. See cloud init logs in `/var/log/cloud-init-output.log` for progress on the user data script.
-6. Invite the bot to your Discord server following the instructions on the [JMusicBot](https://jmusicbot.com/) website.
+6. Invite the bot to your Discord server following the instructions on the [JMusicBot website](https://jmusicbot.com/).
