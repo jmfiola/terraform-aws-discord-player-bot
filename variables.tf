@@ -23,6 +23,11 @@ variable "discord_user_id" {
   type        = string
 }
 
+variable "allowed_ip" {
+  description = "The IP address allowed to ssh into the instance"
+  type        = string
+}
+
 variable "public_key_path" {
   description = "The path to the public key file"
   type        = string

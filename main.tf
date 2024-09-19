@@ -39,20 +39,20 @@ resource "aws_instance" "jmusicbot" {
 
 resource "aws_security_group" "jmusicbot_sg" {
   name        = "jmusicbot_sg"
-  description = "Allow SSH and HTTP traffic"
+  description = "Allow SSH and ICMP traffic"
 
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["${var.allowed_ip}/32"]
   }
 
   ingress {
     from_port   = -1
     to_port     = -1
     protocol    = "icmp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["${var.allowed_ip}/32"]
   }
 
   egress {
