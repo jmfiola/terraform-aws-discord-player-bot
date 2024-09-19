@@ -1,6 +1,7 @@
 config.txt
 .terraform.lock.hcl
 *.tfstate
+*.backup
 .terraform/
 terraform.tfvars
 *.log
