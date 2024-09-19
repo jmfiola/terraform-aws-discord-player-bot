@@ -1,0 +1,10 @@
+config.txt
+.terraform.lock.hcl
+*.tfstate
+.terraform/
+terraform.tfvars
+*.log
+tmp
+local.settings.json
+.terraform.lock.hcl
+.vscode
