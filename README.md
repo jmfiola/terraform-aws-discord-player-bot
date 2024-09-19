@@ -6,9 +6,9 @@ This project sets up a JMusicBot on an AWS EC2 instance using Terraform.
 
 - Terraform installed
 - AWS credentials configured
-- SSH key pair for accessing the EC2 instance
-- Discord app/bot token (follow the bot creation directions on [JMusicBot](https://jmusicbot.com/) to create a token)
-- Dicord user ID (right-click on your user in Discord and click "Copy ID" to get your user ID)
+- SSH key pair for EC2 instance access
+- Discord app/bot token (follow the bot creation directions on the [JMusicBot website](https://jmusicbot.com/) to create a token)
+- Discord user ID (directions to obtain your user ID can be found [here](https://jmusicbot.com/finding-your-user-id/))
 
 ## Usage
 
