@@ -10,7 +10,7 @@ This project sets up a discord player bot on an AWS EC2 Ubuntu instance using Te
 - Discord invite link
 - Discord app id/bot token (can be found [here](https://discord.com/developers/applications))
 - Discord user ID (directions to obtain your user ID can be found [here](https://jmusicbot.com/finding-your-user-id/))
-- Youtube credential string (see instructions [here](https://github.com/retrouser955/discord-player-youtubei))
+- Youtube credential string (see instructions [here](https://github.com/retrouser955/discord-player-youtubei)) USE A BURNER ACCOUNT! DO NOT USE YOUR MAIN ACCOUNT!
 
 
 ## Usage
