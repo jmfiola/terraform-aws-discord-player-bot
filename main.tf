@@ -2,43 +2,43 @@ provider "aws" {
   region = var.region
 }
 
-resource "aws_instance" "jmusicbot" {
+resource "aws_instance" "discord_player_bot" {
   ami           = var.ami_id
   instance_type = var.instance_type
   key_name      = aws_key_pair.deployer_key.key_name
 
-  security_groups = [aws_security_group.jmusicbot_sg.name]
+  security_groups = [aws_security_group.discord_player_bot_sg.name]
 
   user_data = <<-EOF
     #!/bin/bash
-    sudo apt-get update
-    sudo apt-get install -y openjdk-11-jdk wget || sudo apt-get update --fix-missing && sudo apt-get install -y openjdk-11-jdk wget
+    sudo apt-get update -y
+    sudo apt-get install -y docker.io
 
-    # Wait until Java is installed
-    while ! java -version 2>&1 >/dev/null | grep "openjdk version" ; do
-      echo "Waiting for Java installation to complete..."
-      sleep 10
-    done
+    # Create .env file
+    cat <<EOL > .env
+    DISCORD_TOKEN=${var.discord_bot_token}
+    CLIENT_ID=${var.discord_bot_application_id}
+    DEV_GUILD=${var.discord_server_id}
+    DEV_IDS=${var.discord_user_id}
+    SUPPORT_SERVER=${var.discord_invite_link}
+    YT_CREDENTIAL=${var.yt_credential}
+    EOL
 
-    # Download and set up JMusicBot
-    cd /home/ubuntu
-    wget https://github.com/jagrosh/MusicBot/releases/download/0.4.3/JMusicBot-0.4.3.jar
+    # Pull Docker image and run the container
+    sudo docker pull lakhindarpal/discord-player-bot:latest
+    sudo docker run --env-file .env --name discord_player_bot -d lakhindarpal/discord-player-bot:latest
 
-    # Create config file
-    echo "token = ${var.bot_token}" > config.txt
-    echo "owner = ${var.discord_user_id}" >> config.txt
-
-    # Start the bot
-    nohup java -Dnogui=true -jar JMusicBot-0.4.3.jar > bot.log 2>&1 &
+    # Register slash commands
+    sudo docker exec discord_player_bot npm run register
   EOF
 
   tags = {
-    Name = "JMusicBot"
+    Name = "DiscordPlayerBot"
   }
 }
 
-resource "aws_security_group" "jmusicbot_sg" {
-  name        = "jmusicbot_sg"
+resource "aws_security_group" "discord_player_bot_sg" {
+  name        = "discord_player_bot_sg"
   description = "Allow SSH and ICMP traffic"
 
   ingress {

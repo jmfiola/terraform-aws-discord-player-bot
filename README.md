@@ -1,14 +1,17 @@
-# Terraform AWS JMusicBot
+# Terraform AWS Discord player bot
 
-This project sets up a JMusicBot on an AWS EC2 Ubuntu instance using Terraform.
+This project sets up a discord player bot on an AWS EC2 Ubuntu instance using Terraform.
 
 ## Prerequisites
 
 - Terraform installed
 - AWS credentials configured
 - SSH key pair for EC2 instance access
-- Discord app/bot token (follow the bot creation directions on the [JMusicBot website](https://jmusicbot.com/) to create a token)
+- Discord app id/bot token (see https://discord.com/developers/applications)
 - Discord user ID (directions to obtain your user ID can be found [here](https://jmusicbot.com/finding-your-user-id/))
+- Discord invite link
+- Youtube credential string (see https://github.com/retrouser955/discord-player-youtubei/tree/master)
+
 
 ## Usage
 
@@ -29,5 +32,5 @@ This project sets up a JMusicBot on an AWS EC2 Ubuntu instance using Terraform.
    ```sh
    ssh -i <path-to-ssh-key> ubuntu@<public-ip>
    ```
-   NOTE: it may take a few minutes for java to install and the bot to start up after the instance is created. See cloud init logs in `/var/log/cloud-init-output.log` for progress on the user data script.
-6. Invite the bot to your Discord server following the instructions on the [JMusicBot website](https://jmusicbot.com/).
+   NOTE: it may take a few minutes for java to install and the bot to start up after the instance is created. See cloud init logs in `tail -f /var/log/cloud-init-output.log` for progress on the user data script.
+6. Invite the bot to your Discord server by clicking on the invite link in the Terraform output.

@@ -13,13 +13,33 @@ variable "instance_type" {
   type        = string
 }
 
-variable "bot_token" {
+variable "discord_bot_token" {
   description = "The Discord bot token"
+  type        = string
+}
+
+variable "discord_bot_application_id" {
+  description = "The Discord bot application ID"
+  type        = string
+}
+
+variable "discord_server_id" {
+  description = "The server ID the discord bot will be deployed in"
   type        = string
 }
 
 variable "discord_user_id" {
   description = "The Discord user ID"
+  type        = string
+}
+
+variable "discord_invite_link" {
+  description = "A discord invite link to the server"
+  type        = string
+}
+
+variable "yt_credential" {
+  description = "The YouTube API credential string (including the access token, refresh token, etc.)"
   type        = string
 }
 
