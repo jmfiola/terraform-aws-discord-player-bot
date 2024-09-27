@@ -33,4 +33,4 @@ This project sets up a discord player bot on an AWS EC2 Ubuntu instance using Te
    ```sh
    ssh -i <path-to-ssh-key> ubuntu@<public-ip>
    ```
-   NOTE: it may take a few minutes for java to install and the bot to start up after the instance is created. See cloud init logs in `tail -f /var/log/cloud-init-output.log` for progress on the user data script.
+   NOTE: it may take a few minutes for docker to install and the bot to start up after the instance is created. See cloud init logs in `tail -f /var/log/cloud-init-output.log` for progress on the user data script.
